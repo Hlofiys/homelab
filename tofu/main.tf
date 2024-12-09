@@ -11,7 +11,7 @@ module "talos" {
   }
 
   cilium = {
-    values  = file("${path.module}/../k8s/infra/network/cilium/values.yaml")
+    values  = file("${path.module}/../cilium/values.yaml")
     install = file("${path.module}/talos/inline-manifests/cilium-install.yaml")
   }
 
@@ -31,7 +31,7 @@ module "talos" {
       mac_address   = "BC:24:11:2E:C8:00"
       vm_id         = 800
       cpu           = 4
-      ram_dedicated = 4096
+      ram_dedicated = 8192
     }
     "work-00" = {
       host_node     = "sugoma"
@@ -39,7 +39,7 @@ module "talos" {
       ip            = "192.168.1.110"
       mac_address   = "BC:24:11:2E:A8:00"
       vm_id         = 810
-      cpu           = 4
+      cpu           = 2
       ram_dedicated = 4096
     }
   }
